@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kosmo.springapp.mybatis.member">
+	<insert id="insertMember" parameterType="Map">
+		INSERT INTO member VALUES(#{email},#{username},#{password},#{address})
+	</insert>
+	<insert id="insertAuth" parameterType="Map">
+		INSERT INTO auth VALUES(SEQ_AUTH_NO.NEXTVAL, DEFAULT, DEFAULT, #{email})
+	</insert>
+	<insert id="insertAllergy" parameterType="Map">
+		INSERT INTO allergy VALUES(#{allergy},#{email})
+	</insert>
+	
+</mapper>
