@@ -956,8 +956,12 @@
 													recipeNo.push(i.RECIPE_ID);
 												});//forEach 여기까지 OK(갱장히 잘들어옴)
 												recipeNo.forEach(function(element) {
-													console.log(recipeNo[element]);
-												});//forEach(recipeNo)
+													console.log(element);
+												});//forEach(recipeNo) 레시피 내용 출력하기
+											$.get("http://211.237.50.150:7080/openapi/665b01dbe66918219738a2870b23005656cc4790eed4de8e0c3ec20d794a4e21/json/Grid_20150827000000000228_1/1/5?RECIPE_ID="+recipeNo[0],
+													function(data3) {
+														var recipeName = data3.Grid_20150827000000000228_1
+													})
 											})//function(data2)
 						});//function(팩토리)
 
