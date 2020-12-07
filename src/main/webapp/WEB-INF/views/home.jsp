@@ -237,56 +237,57 @@
 		<div class="row"
 			style="padding-top: 10px; display: flex; align-items: center; justify-content: center; vertical-align: middle;">
 			<div class="form-group">
-				<table id="searchIngre">
-					<tr>
-						<th>재료 입력칸</th>
-					</tr>
-					<tr id="row1" style='display: ""'>
-						<td><input type="text" class="form-control"
-							id="cookingIngre1" name="cookingIngre1" placeholder="재료1"
-							style="text-align: center; display: inline;"
-							value="${cookingIngre1}" required></td>
-						<td><img alt="검색 추가버튼"
-							src='<c:url value="/img/core-img/test_plus.png"/>' id="CI_plus"
-							style="width: 38px; height: 38px"></td>
-					</tr>
-					<tr id="row2" style="display: none">
-						<td><input type="text" class="form-control"
-							id="cookingIngre2" name="cookingIngre2" placeholder="재료2"
-							style="text-align: center; display: inline;"
-							value="${cookingIngre2}"></td>
-						<td><img alt="검색 삭제버튼2"
-							src='<c:url value="/img/core-img/minus.png"/>' id="CI_minus"
-							style="width: 38px; height: 38px"></td>
-					</tr>
-					<tr id="row3" style="display: none">
-						<td><input type="text" class="form-control"
-							id="cookingIngre3" name="cookingIngre3" placeholder="재료3"
-							style="text-align: center; display: inline;"
-							value="${cookingIngre3}"></td>
-						<td><img alt="검색 삭제버튼3"
-							src='<c:url value="/img/core-img/minus.png"/>' id="CI_minus"
-							style="width: 38px; height: 38px"></td>
-					</tr>
-					<tr id="row4" style="display: none">
-						<td><input type="text" class="form-control"
-							id="cookingIngre4" name="cookingIngre4" placeholder="재료4"
-							style="text-align: center; display: inline;"
-							value="${cookingIngre4}"></td>
-						<td><img alt="검색 삭제버튼4"
-							src='<c:url value="/img/core-img/minus.png"/>' id="CI_minus"
-							style="width: 38px; height: 38px"></td>
-					</tr>
-					<tr id="row5" style="display: none">
-						<td><input type="text" class="form-control"
-							id="cookingIngre5" name="cookingIngre5" placeholder="재료5"
-							style="text-align: center; display: inline;"
-							value="${cookingIngre5}"></td>
-						<td><img alt="검색 삭제버튼5"
-							src='<c:url value="/img/core-img/minus.png"/>' id="CI_minus"
-							style="width: 38px; height: 38px"></td>
-					</tr>
-					<%--
+				
+					<table id="searchIngre">
+						<tr>
+							<th>재료 입력칸</th>
+						</tr>
+						<tr id="row1" style='display: ""'>
+							<td><input type="text" class="form-control"
+								id="cookingIngre1" name="cookingIngre1" placeholder="재료1"
+								style="text-align: center; display: inline;"
+								value="${cookingIngre1}" required></td>
+							<td><img alt="검색 추가버튼"
+								src='<c:url value="/img/core-img/test_plus.png"/>' id="CI_plus"
+								style="width: 38px; height: 38px"></td>
+						</tr>
+						<tr id="row2" style="display: none">
+							<td><input type="text" class="form-control"
+								id="cookingIngre2" name="cookingIngre2" placeholder="재료2"
+								style="text-align: center; display: inline;"
+								value="${cookingIngre2}"></td>
+							<td><img alt="검색 삭제버튼2"
+								src='<c:url value="/img/core-img/minus.png"/>' id="CI_minus"
+								style="width: 38px; height: 38px"></td>
+						</tr>
+						<tr id="row3" style="display: none">
+							<td><input type="text" class="form-control"
+								id="cookingIngre3" name="cookingIngre3" placeholder="재료3"
+								style="text-align: center; display: inline;"
+								value="${cookingIngre3}"></td>
+							<td><img alt="검색 삭제버튼3"
+								src='<c:url value="/img/core-img/minus.png"/>' id="CI_minus"
+								style="width: 38px; height: 38px"></td>
+						</tr>
+						<tr id="row4" style="display: none">
+							<td><input type="text" class="form-control"
+								id="cookingIngre4" name="cookingIngre4" placeholder="재료4"
+								style="text-align: center; display: inline;"
+								value="${cookingIngre4}"></td>
+							<td><img alt="검색 삭제버튼4"
+								src='<c:url value="/img/core-img/minus.png"/>' id="CI_minus"
+								style="width: 38px; height: 38px"></td>
+						</tr>
+						<tr id="row5" style="display: none">
+							<td><input type="text" class="form-control"
+								id="cookingIngre5" name="cookingIngre5" placeholder="재료5"
+								style="text-align: center; display: inline;"
+								value="${cookingIngre5}"></td>
+							<td><img alt="검색 삭제버튼5"
+								src='<c:url value="/img/core-img/minus.png"/>' id="CI_minus"
+								style="width: 38px; height: 38px"></td>
+						</tr>
+						<%--
 						<tr>
 							<td>
 								<button
@@ -425,10 +426,11 @@
 							</td>
 						</tr>
 						 --%>
-					<tr>
-						<td><button class="btn bueno-btn" id="submitBtn">검색하기</button></td>
-					</tr>
-				</table>
+						<tr>
+							<td><button class="btn bueno-btn" id="submitBtn">검색하기</button></td>
+						</tr>
+					</table>
+				
 			</div>
 
 		</div>
@@ -785,12 +787,23 @@
 
 		})
 
-		$('#submitBtn')
-				.click(
-						function() {
+		$('#submitBtn').click(function() {
+							var ingreText1 = $('#cookingIngre1').val(); //값 확인했음.
+							//입력한 값들 있을 때
+							if($('#cookingIngre2').val() !="") var ingreText2 = $('#cookingIngre2').val();
+							if($('#cookingIngre3').val() !="") var ingreText3 = $('#cookingIngre3').val();
+							if($('#cookingIngre4').val() !="") var ingreText4 = $('#cookingIngre4').val();
+							if($('#cookingIngre5').val() !="") var ingreText5 = $('#cookingIngre5').val();
+							console.log(ingreText5);
+							if(ingreText5==""){// 입력 안했을 때
+								console.log('밥 넣어라!!!');
+							}
 							console.log('서브밋 이벤트!')
-							$('#serachForm').submit();
-
+							//여기다가 입력 재료에 대한 레시피 번호 찾기
+							
+							
+							//레시피 번호 찾기 끝
+							
 							$
 									.ajax({
 										url : "http://211.237.50.150:7080/openapi/665b01dbe66918219738a2870b23005656cc4790eed4de8e0c3ec20d794a4e21/json/Grid_20150827000000000226_1/1/5?RECIPE_NM_KO=나물비빔밥",
@@ -957,11 +970,8 @@
 												});//forEach 여기까지 OK(갱장히 잘들어옴)
 												recipeNo.forEach(function(element) {
 													console.log(element);
-												});//forEach(recipeNo) 레시피 내용 출력하기
-											$.get("http://211.237.50.150:7080/openapi/665b01dbe66918219738a2870b23005656cc4790eed4de8e0c3ec20d794a4e21/json/Grid_20150827000000000228_1/1/5?RECIPE_ID="+recipeNo[0],
-													function(data3) {
-														var recipeName = data3.Grid_20150827000000000228_1.row[0].
-													})
+												});//forEach(recipeNo) 레시피 내용 출력하기 얘도 잘 되는거 확인함
+											
 											})//function(data2)
 						});//function(팩토리)
 
