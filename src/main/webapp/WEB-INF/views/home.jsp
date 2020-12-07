@@ -822,9 +822,7 @@
 										}
 									})
 
-							$
-									.get(
-											"http://211.237.50.150:7080/openapi/665b01dbe66918219738a2870b23005656cc4790eed4de8e0c3ec20d794a4e21/json/Grid_20150827000000000226_1/1/5?RECIPE_NM_KO=나물비빔밥",
+							/*$.get("http://211.237.50.150:7080/openapi/665b01dbe66918219738a2870b23005656cc4790eed4de8e0c3ec20d794a4e21/json/Grid_20150827000000000226_1/1/5?RECIPE_NM_KO=나물비빔밥",
 											function(data1) {
 												console.log('get data1 호출!')
 												console.log(data1);
@@ -846,6 +844,7 @@
 													/*for(var ele2 in i[ele]){
 													    console.log(i[ele][ele2]);
 													} */
+													/*
 													console.log('for i row 진입');
 													console
 															.log(data1.Grid_20150827000000000226_1.row[0].RECIPE_NM_KO);
@@ -857,8 +856,9 @@
 															.log(data1.row[i].IMG_URL);
 												}
 												console.log('for i row 탈출');
-
-												//출처: https://coding-start.tistory.com/28 [코딩스타트]
+				
+												var ingre1[];
+												*/
 												//				console.log(data1.row.length);
 
 												//				for(var i = 0; i<data1.row.length;i++){
@@ -882,8 +882,84 @@
 												}
 												 */
 
-											});//get
-						});
+											//});//get*/
+											/*
+											$
+											.get("http://211.237.50.150:7080/openapi/665b01dbe66918219738a2870b23005656cc4790eed4de8e0c3ec20d794a4e21/json/Grid_20150827000000000226_1/1/5?RECIPE_NM_KO=나물비빔밥",
+													function(data1) {
+														console.log('get data1 호출!')
+														console.log(data1);
+
+														console.log('data1 name : '+ data1.Grid_20150827000000000226_1.row[0].RECIPE_NM_KO);
+														console.log('data1 url : '+ data1.Grid_20150827000000000226_1.row[0].IMG_URL);
+														var ko_name = data1.Grid_20150827000000000226_1.row[0].RECIPE_NM_KO;
+														var recipe_url = data1.Grid_20150827000000000226_1.row[0].IMG_URL;
+														console.log('ko_name :  '+ ko_name);
+														console.log('recipe_url :  '+ recipe_url);
+
+														console.log('적용 시도');
+														$('#img3').prop("src",
+																recipe_url);
+														$('#recipe_name3')
+																.text(ko_name);
+
+														for ( var i in data1.row) {
+															/*for(var ele2 in i[ele]){
+															    console.log(i[ele][ele2]);
+															} */
+															//console.log('for i row 진입');
+															//console
+															//		.log(data1.Grid_20150827000000000226_1.row[0].RECIPE_NM_KO);
+															//console
+															//		.log(data1.Grid_20150827000000000226_1.row[0].IMG_URL);
+															//console
+															//		.log(data1.row[i].RECIPE_NM_KO);
+															//console
+															//		.log(data1.row[i].IMG_URL);
+														//}
+														//console.log('for i row 탈출');
+						
+														//var ingre1[];
+														
+														//				console.log(data1.row.length);
+
+														//				for(var i = 0; i<data1.row.length;i++){
+														//					console.log("음식명: "+data1.row[i].RECIPE_NM_KO);
+														//					console.log("사진링크: "+data1.row[i].IMG_URL);
+														//				}
+														/* 안됐었음
+														console.log(data1.RECIPE_NM_KO);
+														console.log(data1.IMG_URL);
+														console.log(data1.RECIPE_ID);
+														 */
+														/*
+														for(var i in data1){//받은 데이터 하나씩 꺼내기
+															var $recipe_nm_ko = data1[i].RECIPE_NM_KO;
+															var $img_url = data1[i].IMG_URL;
+															var $recipe_id = data1[i].RECIPE_ID;
+															console.log('$recipe_nm_ko : '+$recipe_nm_ko );
+															console.log('$img_url : '+$img_url );
+															console.log(' $recipe_id : '+ $recipe_id );
+															
+														}
+														
+
+													});//get */
+										var filter1;
+									$.get("http://211.237.50.150:7080/openapi/665b01dbe66918219738a2870b23005656cc4790eed4de8e0c3ec20d794a4e21/json/Grid_20150827000000000227_1/1/500?IRDNT_NM=파",
+											function(data2) {
+												var filter=new Array();//필터링용
+												var recipeNo=new Array();//해당 재료에 대한 레시피 번호 저장용
+												data2.Grid_20150827000000000227_1.row.forEach(function(i){
+													console.log('i = '+i);
+													console.log('i.RECIPE_ID = '+i.RECIPE_ID);
+													recipeNo.push(i.RECIPE_ID);
+												});//forEach 여기까지 OK(갱장히 잘들어옴)
+												recipeNo.forEach(function(element) {
+													console.log(recipeNo[element]);
+												});//forEach(recipeNo)
+											})//function(data2)
+						});//function(팩토리)
 
 	});
 </script>
